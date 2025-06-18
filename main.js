@@ -44,72 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
         seoScript.textContent = JSON.stringify(seoJson, null, 2);
     }
 
-    // Scroll arrow logic
-    const scrollDown = document.getElementById('scrollDown');
-    const scrollUp = document.getElementById('scrollUp');
-    function toggleArrows() {
-        if (window.scrollY > window.innerHeight * 0.5) {
-            scrollUp.style.display = 'flex';
-            scrollDown.style.display = 'none';
-        } else {
-            scrollUp.style.display = 'none';
-            scrollDown.style.display = 'flex';
-        }
-    }
-    if (scrollDown && scrollUp) {
-        toggleArrows();
-        window.addEventListener('scroll', toggleArrows);
-    }
-
-    // Map click handler for device detection
-    const mapClickArea = document.getElementById('mapClickArea');
-    if (mapClickArea) {
-        mapClickArea.addEventListener('click', function () {
-            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-            const isAndroid = /Android/.test(navigator.userAgent);
-            let url = '';
-            if (isIOS) {
-                url = 'https://maps.apple.com/?q=Melbourne';
-            } else if (isAndroid) {
-                url = 'geo:0,0?q=Melbourne';
-            } else {
-                url = 'https://www.google.com/maps/search/?api=1&query=Melbourne';
-            }
-            window.open(url, '_blank');
-        });
-    }
-
-    // Image modal logic
-    const modal = document.getElementById('imgModal');
-    const modalImg = document.getElementById('imgModalImg');
-    const modalClose = document.getElementById('imgModalClose');
-    document.querySelectorAll('.section-image').forEach(img => {
-        img.style.cursor = 'zoom-in';
-        img.addEventListener('click', function() {
-            modal.style.display = 'flex';
-            modalImg.src = this.src;
-            modalImg.alt = this.alt;
-        });
-    });
-    if (modalClose) {
-        modalClose.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-    }
-    if (modal) {
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-    }
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'flex') {
-            modal.style.display = 'none';
-        }
-    });
-
-    // Section background image fade logic
+    // Section background image fade logic with debounced updateBg
     const bgOverlay = document.getElementById('bg-overlay');
     const sectionBgMap = {
         intro: 'Resources/BG.png',
@@ -137,21 +72,38 @@ document.addEventListener('DOMContentLoaded', function () {
         return current;
     }
     let lastSection = '';
+    let bgTimeout = null;
     function updateBg() {
-        const section = getCurrentSection();
-        if (section !== lastSection) {
-            if (bgOverlay) {
-                bgOverlay.style.opacity = 0;
-                setTimeout(() => {
-                    bgOverlay.style.backgroundImage = `url('${sectionBgMap[section]}')`;
-                    bgOverlay.style.opacity = 1;
-                }, 400);
+        if (bgTimeout) cancelAnimationFrame(bgTimeout);
+        bgTimeout = requestAnimationFrame(() => {
+            const section = getCurrentSection();
+            if (section !== lastSection) {
+                if (bgOverlay) {
+                    bgOverlay.style.opacity = 0;
+                    setTimeout(() => {
+                        bgOverlay.style.backgroundImage = `url('${sectionBgMap[section]}')`;
+                        // Set background position and size for each section
+                        if (section === 'bikerepair' || section === 'bakery') {
+                            bgOverlay.style.backgroundPosition = 'center 60%';
+                            bgOverlay.style.backgroundSize = '100% auto';
+                        } else if (section === 'intro') {
+                            bgOverlay.style.backgroundPosition = 'center center';
+                            bgOverlay.style.backgroundSize = 'cover';
+                        } else {
+                            bgOverlay.style.backgroundPosition = 'center center';
+                            bgOverlay.style.backgroundSize = 'cover';
+                        }
+                        bgOverlay.style.opacity = 1;
+                    }, 400);
+                }
+                lastSection = section;
             }
-            lastSection = section;
-        }
+        });
     }
     if (bgOverlay) {
         bgOverlay.style.backgroundImage = `url('${sectionBgMap.intro}')`;
+        bgOverlay.style.backgroundPosition = 'center center';
+        bgOverlay.style.backgroundSize = 'cover';
         bgOverlay.style.opacity = 1;
         window.addEventListener('scroll', updateBg);
         window.addEventListener('resize', updateBg);
@@ -161,5 +113,5 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
     // Initial update
-    setTimeout(updateBg, 100);
+    updateBg();
 });

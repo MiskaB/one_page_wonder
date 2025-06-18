@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 0;
     /* Remove background image from body */
@@ -10,7 +10,7 @@ body {
 }
 
 header, main, footer {
-    background: rgba(30, 40, 60, 0.82);
+    background: rgba(60, 30, 33, 0.82);
     color: #f5f7fa;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(30,40,60,0.10);
@@ -131,45 +131,51 @@ footer {
     font-size: 0.95rem;
     border-radius: 0 0 10px 10px;
 }
-.scroll-arrow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 1.2rem;
-    width: 44px;
-    height: 44px;
-    background: rgba(245,247,250,0.95);
-    color: #2a4a7a;
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(30,40,60,0.13);
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 1000;
-    opacity: 0.85;
-    transition: background 0.2s, color 0.2s, opacity 0.2s;
-}
-.scroll-arrow.up {
-    bottom: 4.2rem;
-    display: none;
-}
-.scroll-arrow:hover {
-    background: #2a4a7a;
-    color: #fff;
-    opacity: 1;
-}
 .immersive-section {
-    margin: 80px 0; /* Increase vertical space between sections for more blue */
-    padding: 24px 0 24px 0; /* Reduce top/bottom padding inside white section */
-    background: rgba(255,255,255,0.92);
-    border-radius: 24px;
-    box-shadow: 0 2px 16px rgba(30,40,60,0.10);
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-    min-height: unset; /* Remove/minimize forced height if present */
+    margin-bottom: 15rem;
+    padding: 3.5rem 0 3.5rem 0;
+    border-radius: 24px;
+    box-shadow: none;
+    background: none !important;
+    color: #f5f7fa !important;
+}
+
+/* Blue background for immersive sections */
+.blue-bg {
+    background: rgba(30, 40, 60, 0.92) !important;
+    color: #f5f7fa !important;
+    box-shadow: 0 2px 12px rgba(30,40,60,0.13);
+}
+
+/* Blue highlight for immersive sections */
+.blue-highlight {
+    background: rgba(40, 60, 100, 0.85) !important;
+    color: #fff !important;
+    border-left: 5px solid #4a7ad1 !important;
+    box-shadow: 0 2px 8px rgba(30,40,60,0.13);
+}
+
+/* Remove gradients and white backgrounds from immersive sections */
+.section-coffeeshop,
+.section-karaokebar,
+.section-bikerepair,
+.section-bakery,
+.section-tattooshop {
+    background: none !important;
+    color: #f5f7fa !important;
+}
+
+.section-coffeeshop .highlight,
+.section-karaokebar .highlight,
+.section-bikerepair .highlight,
+.section-bakery .highlight,
+.section-tattooshop .highlight {
+    background: none !important;
+    color: #fff !important;
+    border-left: 5px solid #4a7ad1 !important;
 }
 section.immersive-section {
     margin-bottom: 15rem; /* 3x more space between sections */
@@ -216,7 +222,7 @@ section.immersive-section {
 }
 .section-karaokebar .highlight {
     background: #f3f2fa;
-    color: #2d2a4a;
+    color: #2d2d2a;
     border-left: 5px solid #b6b6e0;
 }
 .section-bikerepair {
@@ -250,10 +256,10 @@ section.immersive-section {
     max-width: 600px;
     margin: 1.5rem auto 1.5rem auto;
     padding: 1.2rem 1.5rem;
-    background: rgba(230, 235, 245, 0.92);
-    color: #2a3a5a;
+    background: rgba(30, 40, 60, 0.60) !important; /* More transparent blue */
+    color: #f5f7fa !important;
     border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(30,40,60,0.07);
+    box-shadow: 0 2px 12px rgba(30,40,60,0.13);
     font-size: 1.13rem;
     line-height: 1.7;
     text-align: left;
@@ -313,52 +319,77 @@ section.immersive-section {
     pointer-events: none;
 }
 
+/* Section logo styling */
+.section-logo {
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    max-width: 120px;
+    width: 30vw;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(30,40,60,0.13);
+    background: #fff;
+    padding: 0.7rem;
+}
+.section-tattooshop .section-logo {
+    background: #23242a !important;
+}
+
+/* Section content alignment and spacing */
+.section-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1.2rem 2.2rem 1.2rem 2.2rem;
+    background: none;
+    border-radius: 12px;
+    text-align: left;
+}
+.feature-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 2.5rem 0 0.2rem 0; /* 2 lines of space above */
+}
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(30,40,60,0.10);
+    object-fit: contain;
+    padding: 0.2rem;
+    transition: transform 0.15s;
+}
+.feature-icon:hover {
+    transform: scale(1.08) rotate(-3deg);
+    box-shadow: 0 4px 16px rgba(30,40,60,0.18);
+}
+.feature-caption {
+    color: #b6c6e0;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.2rem;
+    font-style: italic;
+    text-align: center;
+}
+
 @media (max-width: 800px) {
-    main {
-        max-width: 98vw;
-        padding: 0.5rem;
-    }
-    .quick-nav button {
-        font-size: 0.95rem;
-        padding: 0.4rem 0.8rem;
-    }
     .immersive-section {
+        max-width: 98vw;
+        margin-left: 0.5vw;
+        margin-right: 0.5vw;
         padding: 1.2rem 0;
-    }
-    .scroll-arrow {
-        width: 38px;
-        height: 38px;
-        font-size: 1.5rem;
-        bottom: 0.7rem;
-    }
-    .scroll-arrow.up {
-        bottom: 3.2rem;
-    }
-    header, main, footer {
-        border-radius: 0;
-    }
-    .section-image {
-        max-width: 98vw;
-    }
-    .highlight {
-        font-size: 1rem;
-        padding: 0.5rem 0.7rem;
-    }
-    .intro-text {
-        padding: 0.7rem 0.5rem;
-        font-size: 1rem;
-    }
-    .img-modal-content {
-        max-width: 98vw;
-        max-height: 60vh;
-    }
-    section.immersive-section {
         margin-bottom: 9rem;
         padding-bottom: 7.5rem;
     }
-    section.immersive-section::after {
-        width: 40px;
-        height: 12px;
-        margin: 1.5rem auto 0 auto;
+    .section-content {
+        padding: 0.7rem 0.7rem 0.7rem 0.7rem;
+        font-size: 1rem;
+    }
+    .section-logo {
+        max-width: 80px;
+        width: 40vw;
+        padding: 0.4rem;
     }
 }
