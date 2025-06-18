@@ -1,0 +1,360 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Remove background image from body */
+    color: #f5f7fa;
+    min-height: 100vh;
+    position: relative;
+}
+
+header, main, footer {
+    background: rgba(30, 40, 60, 0.82);
+    color: #f5f7fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(30,40,60,0.10);
+    position: relative;
+    z-index: 1;
+}
+header {
+    padding: 2rem 1rem 1rem 1rem;
+    text-align: center;
+    background: rgba(30, 40, 60, 0.60); /* More transparent than before */
+}
+header h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    color: #f5f7fa;
+    text-shadow: 0 2px 8px #1a2233;
+}
+#subtitle {
+    font-size: 1.2rem;
+    color: #b6c6e0;
+}
+.quick-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0 0.5rem 0;
+}
+.quick-nav button {
+    background: rgba(245,247,250,0.95);
+    color: #2a4a7a;
+    border: 2px solid #b6c6e0;
+    border-radius: 25px;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(30,40,60,0.07);
+}
+.quick-nav button:hover {
+    background: #2a4a7a;
+    color: #fff;
+}
+main {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: rgba(30, 40, 60, 0.85);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(30,40,60,0.13);
+}
+section {
+    margin-bottom: 2.5rem;
+}
+section h2 {
+    color: #b6c6e0;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 1px 4px #1a2233;
+}
+.map-embeds iframe {
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 8px rgba(30,40,60,0.13);
+}
+#instagram blockquote {
+    width: 100%;
+    min-height: 200px;
+    border-radius: 8px;
+    background: rgba(245,247,250,0.85);
+    border: 1px solid #b6c6e0;
+    margin: 0 auto 1rem auto;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+form label {
+    font-weight: 500;
+    color: #b6c6e0;
+}
+form input, form textarea {
+    padding: 0.5rem;
+    border: 1px solid #b6c6e0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: rgba(245,247,250,0.95);
+    color: #2a4a7a;
+}
+form input:focus, form textarea:focus {
+    outline: 2px solid #b6c6e0;
+}
+form button {
+    background: #2a4a7a;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+form button:hover {
+    background: #1a2233;
+}
+#formResponse {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #b6c6e0;
+}
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(30, 40, 60, 0.92);
+    color: #f5f7fa;
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    border-radius: 0 0 10px 10px;
+}
+.scroll-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1.2rem;
+    width: 44px;
+    height: 44px;
+    background: rgba(245,247,250,0.95);
+    color: #2a4a7a;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(30,40,60,0.13);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0.85;
+    transition: background 0.2s, color 0.2s, opacity 0.2s;
+}
+.scroll-arrow.up {
+    bottom: 4.2rem;
+    display: none;
+}
+.scroll-arrow:hover {
+    background: #2a4a7a;
+    color: #fff;
+    opacity: 1;
+}
+.immersive-section {
+    padding: 2.5rem 0 2.5rem 0;
+    background: rgba(40, 60, 90, 0.80);
+    border-radius: 12px;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 2px 12px rgba(30,40,60,0.04);
+    transition: background 0.3s;
+}
+section.immersive-section {
+    margin-bottom: 15rem; /* 3x more space between sections */
+    padding-bottom: 12rem; /* 3x more extra scroll required to reach next section */
+    box-shadow: 0 2px 16px rgba(30,40,60,0.10);
+    border-radius: 18px;
+    position: relative;
+}
+.section-image {
+    width: 100%;
+    max-width: 420px;
+    display: block;
+    margin: 0 auto 1.2rem auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(30,40,60,0.13);
+}
+.highlight {
+    margin: 1.2rem 0 0.5rem 0;
+    padding: 0.7rem 1.2rem;
+    background: rgba(245,247,250,0.92);
+    color: #2a4a7a;
+    border-left: 5px solid #b6c6e0;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.08rem;
+    box-shadow: 0 2px 8px rgba(30,40,60,0.07);
+}
+.section-intro {
+    background: linear-gradient(135deg, #e6ebf5 80%, #b6c6e0 100%);
+    color: #2a3a5a;
+}
+.section-coffeeshop {
+    background: linear-gradient(135deg, #f8f5f0 60%, #f3e7d3 100%);
+    color: #4a3a2a;
+}
+.section-coffeeshop .highlight {
+    background: #f9f6f2;
+    color: #4a3a2a;
+    border-left: 5px solid #e3c7a0;
+}
+.section-karaokebar {
+    background: linear-gradient(135deg, #f5f3fa 60%, #e6e6f5 100%);
+    color: #2d2a4a;
+}
+.section-karaokebar .highlight {
+    background: #f3f2fa;
+    color: #2d2a4a;
+    border-left: 5px solid #b6b6e0;
+}
+.section-bikerepair {
+    background: linear-gradient(135deg, #f0f8f5 60%, #e6f5ec 100%);
+    color: #2a4a3a;
+}
+.section-bikerepair .highlight {
+    background: #f2f9f6;
+    color: #2a4a3a;
+    border-left: 5px solid #b6e0c6;
+}
+.section-bakery {
+    background: linear-gradient(135deg, #f9f6f2 60%, #f5efe6 100%);
+    color: #6e4a2d;
+}
+.section-bakery .highlight {
+    background: #f9f6f2;
+    color: #6e4a2d;
+    border-left: 5px solid #f7e6c6;
+}
+.section-tattooshop {
+    background: linear-gradient(135deg, #f3f3f3 60%, #e6e6e6 100%);
+    color: #2d2d2d;
+}
+.section-tattooshop .highlight {
+    background: #f3f3f3;
+    color: #2d2d2d;
+    border-left: 5px solid #b6c6e0;
+}
+.intro-text {
+    max-width: 600px;
+    margin: 1.5rem auto 1.5rem auto;
+    padding: 1.2rem 1.5rem;
+    background: rgba(230, 235, 245, 0.92);
+    color: #2a3a5a;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(30,40,60,0.07);
+    font-size: 1.13rem;
+    line-height: 1.7;
+    text-align: left;
+}
+.intro-text ul {
+    margin: 0.7rem 0 0.7rem 1.2rem;
+    padding-left: 1.2rem;
+}
+.intro-text li {
+    margin-bottom: 0.3rem;
+    list-style: disc inside;
+}
+.img-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(30,40,60,0.85);
+    transition: opacity 0.2s;
+}
+.img-modal-content {
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(30,40,60,0.25);
+    background: #fff;
+    object-fit: contain;
+}
+.img-modal-close {
+    position: absolute;
+    top: 2.5vh;
+    right: 4vw;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2100;
+    text-shadow: 0 2px 8px #1a2233;
+}
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    transition: background-image 0s, opacity 0.8s cubic-bezier(0.4,0,0.2,1);
+    pointer-events: none;
+}
+
+@media (max-width: 800px) {
+    main {
+        max-width: 98vw;
+        padding: 0.5rem;
+    }
+    .quick-nav button {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.8rem;
+    }
+    .immersive-section {
+        padding: 1.2rem 0;
+    }
+    .scroll-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 1.5rem;
+        bottom: 0.7rem;
+    }
+    .scroll-arrow.up {
+        bottom: 3.2rem;
+    }
+    header, main, footer {
+        border-radius: 0;
+    }
+    .section-image {
+        max-width: 98vw;
+    }
+    .highlight {
+        font-size: 1rem;
+        padding: 0.5rem 0.7rem;
+    }
+    .intro-text {
+        padding: 0.7rem 0.5rem;
+        font-size: 1rem;
+    }
+    .img-modal-content {
+        max-width: 98vw;
+        max-height: 60vh;
+    }
+    section.immersive-section {
+        margin-bottom: 9rem;
+        padding-bottom: 7.5rem;
+    }
+    section.immersive-section::after {
+        width: 40px;
+        height: 12px;
+        margin: 1.5rem auto 0 auto;
+    }
+}
