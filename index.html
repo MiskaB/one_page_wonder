@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Character encoding -->
     <meta charset="UTF-8">
+    <!-- Responsive viewport settings for mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO meta tags -->
     <meta name="description" content="Fast, clean, SEO-optimized landing page for any event or purpose.">
     <meta name="keywords" content="landing page, event, concert, auction, under construction, gigs, special event, SEO, one page wonder">
     <meta name="author" content="@MiskaB">
+    <!-- Page title -->
     <title>One Page Wonder</title>
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="style.css">
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Facebook meta tags for social sharing -->
     <meta property="og:title" content="One Page Wonder">
     <meta property="og:description" content="Rapid, SEO-optimized landing page for any use case.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yourdomain.com/">
     <meta property="og:image" content="/og-image.png">
-    <!-- Twitter -->
+    <!-- Twitter meta tags for social sharing -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="One Page Wonder">
     <meta name="twitter:description" content="Rapid, SEO-optimized landing page for any use case.">
     <meta name="twitter:image" content="/og-image.png">
+    <!-- Main JavaScript file -->
     <script defer src="main.js"></script>
 </head>
 <body>
+    <!-- Background overlay for modals or visual effects -->
     <div id="bg-overlay" class="bg-overlay"></div>
+    <!-- Header section with site title and navigation -->
     <header>
         <h1>One Page Wonder</h1>
+        <!-- Quick navigation buttons to scroll to each section -->
         <nav class="quick-nav">
             <button onclick="document.getElementById('coffeeshop').scrollIntoView({behavior: 'smooth'})">Coffee Shop</button>
             <button onclick="document.getElementById('karaokebar').scrollIntoView({behavior: 'smooth'})">Karaoke Bar</button>
@@ -32,14 +41,13 @@
             <button onclick="document.getElementById('bakery').scrollIntoView({behavior: 'smooth'})">Bakery</button>
             <button onclick="document.getElementById('tattooshop').scrollIntoView({behavior: 'smooth'})">Tattoo Studio</button>
         </nav>
+        <!-- Introductory text describing the service -->
         <div class="intro-text">
             <p>Lets me guess you landed on this website because....</p>
-
             <p>You have a business to run? Idea to launch or test? You don’t need a six-month digital marketing project or weekly update calls on progress of the same.</p>
             <p> </p>
             <p> </p>
             <p>You need one neat, fresh, mobile-friendly info site and you need it now. To tell your customers and users:</p>
-
             <ul>
                 <li>What you do</li>
                 <li>Where to find you</li>
@@ -54,6 +62,7 @@
         </div>
     </header>
     <main>
+        <!-- Coffee Shop section -->
         <section id="coffeeshop" class="immersive-section section-coffeeshop blue-bg">
             <img src="Resources/CoffeeLogo.png" alt="Coffee Shop Logo" class="section-logo" loading="lazy">
             <h2>1. Coffee Shop</h2>
@@ -68,6 +77,7 @@
                 <div class="feature-caption">These features come out of the box for your One Page Wonder.</div>
             </div>
         </section>
+        <!-- Karaoke Bar section -->
         <section id="karaokebar" class="immersive-section section-karaokebar blue-bg">
             <img src="Resources/KaraokeLogo.png" alt="Karaoke Bar Logo" class="section-logo" loading="lazy">
             <h2>2. Karaoke Bar</h2>
@@ -81,6 +91,7 @@
                 <div class="feature-caption">All the essentials, ready to go for your event or bar.</div>
             </div>
         </section>
+        <!-- Bike Repair & Rental Shop section -->
         <section id="bikerepair" class="immersive-section section-bikerepair blue-bg">
             <img src="Resources/BikeLogo.png" alt="Bike Repair Logo" class="section-logo" loading="lazy">
             <h2>3. Bike Repair & Rental Shop</h2>
@@ -94,6 +105,7 @@
                 <div class="feature-caption">Instant feedback and reviews, included by default.</div>
             </div>
         </section>
+        <!-- Local Bakery section -->
         <section id="bakery" class="immersive-section section-bakery blue-bg">
             <img src="Resources/BakeryLogo.png" alt="Bakery Logo" class="section-logo" loading="lazy">
             <h2>4. Local Bakery</h2>
@@ -107,6 +119,7 @@
                 <div class="feature-caption">Social media and sharing tools, ready for your bakery.</div>
             </div>
         </section>
+        <!-- Tattoo Studio section -->
         <section id="tattooshop" class="immersive-section section-tattooshop blue-bg">
             <img src="Resources/TattooLogo.png" alt="Tattoo Studio Logo" class="section-logo" loading="lazy">
             <h2>5. Tattoo Studio</h2>
@@ -120,6 +133,7 @@
                 <div class="feature-caption">Showcase your work and connect instantly with clients.</div>
             </div>
         </section>
+        <!-- Contact section with form -->
         <section id="contact" class="blue-bg">
             <h2>Contact Us</h2>
             <form id="contactForm" autocomplete="on">
@@ -138,13 +152,16 @@
             <span class="img-modal-close" id="imgModalClose">&times;</span>
             <img class="img-modal-content" id="imgModalImg" alt="Preview">
         </div>
+        <!-- Scroll up arrow button -->
         <div class="scroll-arrow up" id="scrollUp" title="Scroll Up" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
             &#8593;
         </div>
     </main>
+    <!-- Footer with copyright -->
     <footer>
         <p>&copy; 2025 One Page Wonder. Powered by <a href="https://github.com/">Coming_Soon</a>.</p>
     </footer>
+    <!-- Placeholder for structured data (SEO) -->
     <script type="application/ld+json" id="seo-json"></script>
 </body>
 </html>
