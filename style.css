@@ -2,11 +2,13 @@ body {
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 0;
+    padding-left: 70px; /* Add space for side navigation */
     /* Remove background image from body */
     color: #f5f7fa;
     min-height: 100vh;
     position: relative;
     padding-bottom: 120px; /* Add more blue space at the bottom of the page */
+    transition: padding-left 0.3s ease;
 }
 
 header, main, footer {
@@ -34,26 +36,133 @@ header h1 {
     color: #b6c6e0;
 }
 .quick-nav {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 10000;
+    background: rgba(10, 35, 66, 0.95);
+    padding: 1rem 0.3rem;
+    box-shadow: 2px 0 15px rgba(0,0,0,0.3);
     display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1rem 0 0.5rem 0;
+    flex-direction: column;
+    gap: 0.6rem;
+    backdrop-filter: blur(10px);
+    border-radius: 0 15px 15px 0;
+    user-select: auto;
+    pointer-events: auto;
+    width: 55px;
+    transition: width 0.3s ease, padding 0.3s ease;
+}
+.quick-nav:hover {
+    width: 190px;
+    padding: 1rem 1rem;
 }
 .quick-nav button {
-    background: rgba(245,247,250,0.95);
-    color: #2a4a7a;
-    border: 2px solid #b6c6e0;
-    border-radius: 25px;
-    padding: 0.5rem 1.2rem;
-    font-size: 1rem;
+    margin: 0;
+    padding: 0.7rem;
+    border: none;
+    background: rgba(30, 58, 92, 0.8);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 6px rgba(30,40,60,0.07);
+    transition: all 0.3s ease;
+    user-select: auto;
+    pointer-events: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    min-height: 45px;
+}
+.quick-nav:hover .quick-nav button {
+    justify-content: flex-start;
+}
+.quick-nav button span {
+    opacity: 0;
+    margin-left: 0.5rem;
+    transition: opacity 0.3s ease 0.1s;
+    font-size: 0.85rem;
+    position: absolute;
+    left: 35px;
+    white-space: nowrap;
+}
+.quick-nav:hover .quick-nav button span {
+    opacity: 1;
+    position: relative;
+    left: auto;
+}
+.quick-nav button:before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #4a7ad1;
+    border-radius: 50%;
+    margin-right: 0;
+    flex-shrink: 0;
+    transition: all 0.3s ease, transform 0.2s ease;
+    position: relative;
+    z-index: 1;
+}
+/* Specific icons for each button */
+.quick-nav button:nth-child(1):before {
+    content: '☕';
+    background: none;
+    font-size: 20px;
+    width: auto;
+    height: auto;
+}
+.quick-nav button:nth-child(2):before {
+    content: '🎤';
+    background: none;
+    font-size: 20px;
+    width: auto;
+    height: auto;
+}
+.quick-nav button:nth-child(3):before {
+    content: '🚲';
+    background: none;
+    font-size: 20px;
+    width: auto;
+    height: auto;
+}
+.quick-nav button:nth-child(4):before {
+    content: '🥖';
+    background: none;
+    font-size: 20px;
+    width: auto;
+    height: auto;
+}
+.quick-nav button:nth-child(5):before {
+    content: '🎨';
+    background: none;
+    font-size: 20px;
+    width: auto;
+    height: auto;
+}
+.quick-nav button:nth-child(6):before {
+    content: '📧';
+    background: none;
+    font-size: 20px;
+    width: auto;
+    height: auto;
 }
 .quick-nav button:hover {
-    background: #2a4a7a;
-    color: #fff;
+    background: #2563eb;
+    transform: translateX(3px);
+}
+.quick-nav button:hover:before {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+.quick-nav button:active {
+    transform: scale(0.95);
 }
 main {
     max-width: 700px;
@@ -141,6 +250,7 @@ footer {
     box-shadow: none;
     background: none !important;
     color: #f5f7fa !important;
+    position: relative;
 }
 
 /* Blue background for immersive sections */
@@ -148,6 +258,7 @@ footer {
     background: rgba(30, 40, 60, 0.92) !important;
     color: #f5f7fa !important;
     box-shadow: 0 2px 12px rgba(30,40,60,0.13);
+    position: relative;
 }
 
 /* Blue highlight for immersive sections */
@@ -166,6 +277,7 @@ footer {
 .section-tattooshop {
     background: none !important;
     color: #f5f7fa !important;
+    position: relative !important;
 }
 
 .section-coffeeshop .highlight,
@@ -375,6 +487,34 @@ section.immersive-section {
 }
 
 @media (max-width: 800px) {
+    body {
+        padding-left: 60px; /* Reduced padding for mobile */
+    }
+    .quick-nav {
+        width: 45px;
+        padding: 0.8rem 0.2rem;
+        gap: 0.5rem;
+    }
+    .quick-nav:hover {
+        width: 160px;
+        padding: 0.8rem 0.8rem;
+    }
+    .quick-nav button {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+        min-height: 40px;
+    }
+    .quick-nav button:before {
+        font-size: 16px;
+    }
+    .quick-nav button span {
+        font-size: 0.75rem;
+        margin-left: 0.4rem;
+        left: 30px;
+    }
+    .quick-nav:hover .quick-nav button span {
+        left: auto;
+    }
     .immersive-section {
         max-width: 98vw;
         margin-left: 0.5vw;
